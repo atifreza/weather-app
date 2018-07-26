@@ -1,0 +1,25 @@
+<div class="container loading forecastContainer">
+  <div class="loader" *ngIf="showloader"></div>  
+  <form class="fiveDays" [formGroup]="forecastForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+              <input type="text" formControlName="forecastCity" class="form-control"  placeholder="Name of a city">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" (click)="onSubmit()">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div>
+  </form>
+    <div class="day" *ngFor="let day of cityForecast">
+      <h2>{{day.day | date: 'MMMM d'}}</h2>
+      <div class="icon">
+        <img src="http://openweathermap.org/img/w/{{day.icon}}.png" alt="">
+      </div>
+      <div class="temp">
+        <h3>Max: {{day.tempMax}}</h3>
+        <h3>Min: {{day.tempMin}}</h3>
+      </div>
+    </div>
+</div>
