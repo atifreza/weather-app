@@ -22,7 +22,6 @@ export class CurrentComponent implements OnInit {
     this.route.data.subscribe(
       (data:{current : CurrentWeather }) => {
         this.weather = data.current
-        this.showLoader = false;
       }
     )
   }
