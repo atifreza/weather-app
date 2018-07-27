@@ -28,6 +28,7 @@ export class CurrentComponent implements OnInit {
   }
 
   onSubmit(weatherForm: NgForm){
+    this.showloader = true
     this.weatherService.newCityWeather(weatherForm.value.city).subscribe(
       (data) => {
         this.weather = new CurrentWeather(data.name,
@@ -36,6 +37,7 @@ export class CurrentComponent implements OnInit {
                         data.weather[0].description,
                         data.main.temp_max,
                         data.main.temp_min);
+      this.showloader = false;
       }
     )
   }
