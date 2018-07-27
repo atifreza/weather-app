@@ -13,7 +13,7 @@ export class ForecastComponent implements OnInit {
   
   forecastForm: FormGroup
   cityForecast: Forecast[] = []
-  showLoader:boolean
+  showLoader:boolean = false
 
   constructor(private weatherService: WeatherService) { }
 
