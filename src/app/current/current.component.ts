@@ -13,7 +13,7 @@ import {NgForm} from '@angular/forms'
 export class CurrentComponent implements OnInit {
 
   weather: CurrentWeather;
-  showLoader:boolean = true
+  showLoader:boolean
 
   constructor(private weatherService: WeatherService, private route:ActivatedRoute) {
    }
