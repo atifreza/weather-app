@@ -10,12 +10,14 @@ import 'rxjs/Rx';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
-
-  constructor(private weatherService: WeatherService) { }
-
+  
   forecastForm: FormGroup
   cityForecast: Forecast[] = []
   showLoader:boolean
+
+  constructor(private weatherService: WeatherService) { }
+
+  
 
   ngOnInit() {
     this.forecastForm = new FormGroup({
@@ -34,10 +36,11 @@ export class ForecastComponent implements OnInit {
                                          data.list[i].main.temp_max,
                                          data.list[i].main.temp_min)
           this.cityForecast.push(temporary);
+          this.showLoader = false
         }
       }
     );
-    this.showLoader = false
+ 
   }
 
 }
